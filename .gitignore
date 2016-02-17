@@ -1,0 +1,8 @@
+
+# gecachede dateien entfernen (behalten, aber nicht mehr tracken, nach anp. .gitignore
+#    git rm --cached <Datei>
+#    (habe ganzes verz. .idea wegemoved, dann commit, dann verz. wieder hingemoved)
+
+node_modules/
+build/
+
