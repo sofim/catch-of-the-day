@@ -1,6 +1,13 @@
 var React = require('react');
 var ReactDom = require('react-dom');
 
+var ReactRouter = require('react-router');
+var Router = ReactRouter.Router;
+var Route = ReactRouter.Route;
+var Navigation = ReactRouter.Navigation;
+// -- enables browser-history ("push-date")
+var crateBrowserHistory = require('history/lib/createBrowserHistory');
+
 /*
   def app-komponente : <App />
 */
@@ -9,7 +16,7 @@ var App = React.createClass({
     return (
       <div className="catch-of-the-day">
         <div className="menu">
-          <Header />
+          <Header tagline="my tagline" datum="2016-02-17 12:49"/>
         </div>
         <Order />
         <Inventory />
@@ -24,8 +31,17 @@ var App = React.createClass({
 */
 var Header = React.createClass({
   render : function() {
+    console.log(this.props);
     return (
-      <h4>Header</h4>
+      <header className="top">
+        <h1>Header
+          <span className="ofThe">
+            <span className="of">of</span>
+            <span className="the">the</span>
+          </span>
+        day</h1>
+        <h3 className="tagline"><span>{this.props.tagline} von {this.props.datum}</span></h3>
+      </header>
     )
   }
 });
@@ -71,4 +87,28 @@ var StorePicker = React.createClass({
   }
 });
 
-ReactDom.render(<App/>, document.querySelector('#main'));
+
+/*
+  def komponente NotFound : <NotFound/>
+*/
+var NotFound = React.createClass({
+  render : function() {
+    return (
+      <h1>Not Found!</h1>
+    )
+  }
+});
+
+/*
+  routes : jsx
+*/
+
+var routes = (
+  <Router history={crateBrowserHistory()}>
+    <Route path="/" component={StorePicker}/>
+    <Route path="/store/:storeId" component={App}/>
+    <Route path="*" component={NotFound}/>
+  </Router>
+)
+
+ReactDom.render(routes, document.querySelector('#main'));
