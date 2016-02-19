@@ -37,17 +37,49 @@ var App = React.createClass({
   loadSamples : function() {
     this.setState({ fishes : require('./sample-fishes.js') });
   } ,
+  renderFish : function(key) { //for each fish in fishes !
+    /* just for testing
+    return (
+      <li>Welcome Fish with key : {key}</li>
+    )
+    */
+    return ( <Fish key={key} index={key} details={this.state.fishes[key]} /> )
+  } ,
   render : function() {
     return (
       <div className="catch-of-the-day">
         <div className="menu">
           <Header tagline="my tagline" datum="2016-02-17 12:49"/>
+          <ul className="list-of-fishes">
+            {Object.keys(this.state.fishes).map(this.renderFish) }
+          </ul>
         </div>
         <Order />
         <Inventory addFish={this.addFish} loadSamples={this.loadSamples}/>
       </div>
     )
   }
+});
+
+
+/*
+  def komponente : <Fish />
+*/
+var Fish = React.createClass({
+  render : function() {
+    var details = this.props.details ;
+    return (
+      <li className="menu-fish">
+        <img src={details.image} alt={details.name} />
+        <h3 className="fish-name">
+          {details.name}
+          <span className="price">{h.formatPrice(details.price)}</span>
+        </h3>
+        <p>{details.desc}</p>
+      </li>
+    )
+  } ,
+
 });
 
 
