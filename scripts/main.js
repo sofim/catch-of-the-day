@@ -27,6 +27,10 @@ var App = React.createClass({
       order : {}
     }
   } ,
+  addToOrder : function(key) {
+    this.state.order[key] = this.state.order[key] + 1 || 1; //incre or set to 1 => no of ordered fishes of same key
+    this.setState({ order : this.state.order });
+  } ,
   addFish : function(fish) {
     var timestamp = (new Date()).getTime();
     // update state object
@@ -43,7 +47,7 @@ var App = React.createClass({
       <li>Welcome Fish with key : {key}</li>
     )
     */
-    return ( <Fish key={key} index={key} details={this.state.fishes[key]} /> )
+    return ( <Fish key={key} index={key} details={this.state.fishes[key]} addToOrder={this.addToOrder} /> )
   } ,
   render : function() {
     return (
@@ -55,7 +59,7 @@ var App = React.createClass({
           </ul>
         </div>
         <Order />
-        <Inventory addFish={this.addFish} loadSamples={this.loadSamples}/>
+        <Inventory addFish={this.addFish} loadSamples={this.loadSamples} />
       </div>
     )
   }
@@ -66,8 +70,15 @@ var App = React.createClass({
   def komponente : <Fish />
 */
 var Fish = React.createClass({
+  onButtonClick : function(event) {
+    console.log("should now add this stinky fish", this.props.index);
+    //add this key (fish) to the order-state, i.e. function-def in App !
+    this.props.addToOrder(this.props.index);
+  } ,
   render : function() {
     var details = this.props.details ;
+    var isAvailable = ( details.status === 'available' ? true : false ) ;
+    var buttonText = ( isAvailable ? 'Add To Order' : "SOLD OUT" ) ;
     return (
       <li className="menu-fish">
         <img src={details.image} alt={details.name} />
@@ -76,6 +87,7 @@ var Fish = React.createClass({
           <span className="price">{h.formatPrice(details.price)}</span>
         </h3>
         <p>{details.desc}</p>
+        <button disabled={!isAvailable} onClick={this.onButtonClick}>{buttonText}</button>
       </li>
     )
   } ,
