@@ -20,6 +20,20 @@ var h = require('./helpers') ;
   def app-komponente : <App />
 */
 var App = React.createClass({
+  getInitialState : function () {
+    // state is still null/empty
+    return {
+      fishes : {} ,
+      order : {}
+    }
+  } ,
+  addFish : function(fish) {
+    var timestamp = (new Date()).getTime();
+    // update state object
+    this.state.fishes['fish-'+timestamp] = fish ;
+    // set state for fishes
+    this.setState({ fishes : this.state.fishes });
+  } ,
   render : function() {
     return (
       <div className="catch-of-the-day">
@@ -27,11 +41,56 @@ var App = React.createClass({
           <Header tagline="my tagline" datum="2016-02-17 12:49"/>
         </div>
         <Order />
-        <Inventory />
+        <Inventory addFish={this.addFish} />
       </div>
     )
   }
 });
+
+
+/*
+  def komponente : <AddFishForm />
+*/
+var AddFishForm = React.createClass({
+  createFish : function(event) {
+    // stop form from submitting
+    event.preventDefault();
+    // get data out of form and fill into fish-object
+    var fish = {
+      name : this.refs.name.value ,
+      price : this.refs.price.value ,
+      status : this.refs.status.value ,
+      desc : this.refs.desc.value ,
+      image : this.refs.image.value
+    };
+    //console.log(fish);
+    //state of fish belongs to app, look there getInitial... and addFish - function
+    // now add the fish to the App-State
+    // this sounds goot, but does not work => App.addFish(fish) ;
+    // we must adapt ==> <Inventory /> in kompo  App to <Inventory addFish={this.addFish} />
+    //                                                feature of JSX called spread attributes:
+    // ...analog in kompo App for kompo AddFishForm => <AddFishForm {...this.props} />
+    this.props.addFish(fish);
+    // reset form-fields
+    this.refs.fishForm.reset();
+  } ,
+  render : function() {
+    return (
+      <form className="fish-edit" ref="fishForm" onSubmit={this.createFish}>
+        <input type="text" ref="name" placeholder="Fish Name"/>
+        <input type="text" ref="price" placeholder="Fish Price" />
+        <select ref="status">
+          <option value="available">Fresh!</option>
+          <option value="unavailable">Sold Out!</option>
+        </select>
+        <textarea type="text" ref="desc" placeholder="Desc"></textarea>
+        <input type="text" ref="image" placeholder="URL to Image" />
+        <button type="submit">+ Add Item </button>
+      </form>
+    )
+  }
+});
+
 
 
 /*
@@ -72,7 +131,11 @@ var Order = React.createClass({
 var Inventory = React.createClass({
   render : function() {
     return (
-      <h4>Inventory</h4>
+      <div>
+        <h4>Inventory</h4>
+        <hr />
+        <AddFishForm {...this.props} />
+      </div>
     )
   }
 });
