@@ -5,8 +5,16 @@ var ReactRouter = require('react-router');
 var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 var Navigation = ReactRouter.Navigation;
-// -- enables browser-history ("push-date")
-var crateBrowserHistory = require('history/lib/createBrowserHistory');
+var History = ReactRouter.History ;
+// -- enables browser-history ("push-state")
+var createBrowserHistory = require('history/lib/createBrowserHistory');
+//import createBrowserHistory from 'history/lib/createBrowserHistory';
+//import { browserHistory } from 'react-router' ;
+
+
+//...link helper-functions in helpers.js
+var h = require('./helpers') ;
+
 
 /*
   def app-komponente : <App />
@@ -74,14 +82,23 @@ var Inventory = React.createClass({
   def komponente StorePicker : <StorePicker/>
 */
 var StorePicker = React.createClass({
+  mixins : [History] ,
+  goToStore : function(event) {
+    event.preventDefault();
+    // get data from input out of DOM
+    var storeId = this.refs.storeId.value;
+    console.log("submitted form in StorePicker... StoreId is "+storeId);
+    // transition from <StorePicker/> to <App/>
+    this.history.pushState(null,'/store/' + storeId);
+  } ,
   render : function() {
     var userName = "housi-pesche" ;
-    return ( //--here starts JSX
-      <form className="store-selector">
+    return (
+      <form className="store-selector" onSubmit={this.goToStore}>
         {/* curly-braces and then block-comments are comments */}
         <h2>please enter a store {userName}</h2>
-        <input type="text" ref="storeId" required />
-        <input type="submit" />
+        <input type="text" ref="storeId" defaultValue={h.getFunName()} required />
+        <input type="Submit" />
       </form>
     )
   }
@@ -104,7 +121,8 @@ var NotFound = React.createClass({
 */
 
 var routes = (
-  <Router history={crateBrowserHistory()}>
+  /* <Router history={browserHistory}  > */
+  <Router history={ createBrowserHistory()} >
     <Route path="/" component={StorePicker}/>
     <Route path="/store/:storeId" component={App}/>
     <Route path="*" component={NotFound}/>
