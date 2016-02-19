@@ -34,6 +34,9 @@ var App = React.createClass({
     // set state for fishes
     this.setState({ fishes : this.state.fishes });
   } ,
+  loadSamples : function() {
+    this.setState({ fishes : require('./sample-fishes.js') });
+  } ,
   render : function() {
     return (
       <div className="catch-of-the-day">
@@ -41,7 +44,7 @@ var App = React.createClass({
           <Header tagline="my tagline" datum="2016-02-17 12:49"/>
         </div>
         <Order />
-        <Inventory addFish={this.addFish} />
+        <Inventory addFish={this.addFish} loadSamples={this.loadSamples}/>
       </div>
     )
   }
@@ -135,6 +138,8 @@ var Inventory = React.createClass({
         <h4>Inventory</h4>
         <hr />
         <AddFishForm {...this.props} />
+        <button onClick={this.props.loadSamples}>Load Sample Data</button>
+
       </div>
     )
   }
