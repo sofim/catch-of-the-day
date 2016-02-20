@@ -1,0 +1,200 @@
+﻿--	 hpsof | 09.02.2016 15:06:40
+--	gekauft kurs react for beginners from wesbos.com fuer 59 usd
+--	-------------------------------------------------------------------------
+--	videos : http://reactforbeginners.com/learn/k86gph9n/hanspeter-schlapbach
+--	-------------------------------------------------------------------------
+--	starter-files for download (gemacht) : https://github.com/wesbos/React-For-Beginners-Starter-Files
+--  (siehe G:\sofim_git_repos\react_lernen\React-For-Beginners-Starter-Files-master)
+--
+--  ordner catch-of-the-day machen. dort inhalt von erstem ordner der starter-files hineinkopieren (jeder ordner ist zusaetzlich inkrementell)
+--
+-- 	voraussetzungen
+-- 	---------------
+--	1. npm muss installiert sein                                 - OK
+--	2. react dev. tools for chrome (addon) installieren          - OK
+--  3. fuer atom-editor : apm install react  (atom react plugin) - OK
+--		 https://orktes.github.io/atom-react/
+--  4. gulp : https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md
+--		 Grunt and Gulp do exactly the same thing. (build-tool)
+--		 install with : npm install gulp -g                        - OK
+--             dann : npm install                                - OK
+--	5. upgrade node - via download node-v4.2.6-x64.msi           - OK
+--		 npm cache clean
+--		 npm install
+--
+-- 	6. mit gulp kann app gestartet werden, browser oeffnet automatisch (localhost:3000)
+--     anpassungen erfolgen reactive !
+
+-- °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+-- 1 of 29 : DEVELOPMENT ENVIRONMENT SETUP WITH GULP + BROWSERIFY				12:38
+		installation and setup (siehe oben pkt 1 bis 6). als editor : atom
+--
+-- °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+-- 2 of 29 : Introduction to React Components                           06:36
+		everything in react is a component = reusable piece of the app
+		app selber ist auch component. components get props and have behavior
+		° header | °fish (many) | °order | °inventory |
+		example: facebook (they made react for their own reason)
+--
+-- °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+-- 3 of 29 : WRITING YOUR FIRST COMPONENT                               09:03
+		inst von console : npm install react --save-dev
+		fuellt alle dependencies in package.json fuer react (habs nid ausgefuehrt, da schon drin)
+		npm ist auch package-mgr fuer javascript clnt-seitig heutzutage.
+		statt z.b. jquery via google-cdn einzubinden via :  npm install jquery --save-dev
+		--
+		-- muster-code :
+		--
+		var React = require('react');
+		var ReactDom = require('react-dom');
+		/*
+		  def komponente StorePicker : <StorePicker/>
+		*/
+		var StorePicker = React.createClass({
+		  render : function() {
+		    return (   //JSX-syntax
+		      <p>hallo velo</p>
+		    );
+		  }
+		});
+		ReactDom.render(<StorePicker/>, document.querySelector('#main'));
+--
+-- °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+-- 4 of 29 : WRITING HTML WITH JSX																		  08:34
+		return html created via react (js):
+		render : function() {
+			return React.createElement('p',{className:'test'},'content ');
+		}
+		-- to show : JSX-syntax is better
+		-- achtung : jsx return-wert muss in einem einzelnen tag gewrapped werden, sonst gibt es error
+				return (   //JSX-syntax : gibt fehler, da kein wrapper-tag
+					<p>hallo </p>
+					<p>velo</p>
+				);
+		-- hingegen so gehts:
+				return (
+					<div>
+						<h1>sunny day today</h1>
+						<h4>no - it is raining now</h4>
+					</div>
+				);
+			-- auch bei selbstschliessenden tags beachten: <br> z.b. gibt fehler. muss <br /> sein!
+			-- analog bei input img ...
+			--
+			-- zudem: statt class fuer angabe css-class muss className= angegeben werden! (class ist bereits reserviert in JS)
+			--
+			-- anzeige von variablen in JSX, sowie kommentar
+			--	...
+					var userName = "housi-pesche" ;
+					return ( //--here starts JSX
+						<form className="store-selector">
+							// js-comments werden
+							/* angezeigt in JSX */
+							{/* curly-braces and then block-comments are comments */}
+							<h2>please enter a store {userName}</h2>
+							<input type="text" ref="storeId" required />
+							<input type="submit" />
+						</form>
+--
+-- °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+-- 5 of 29 : CREATING OUR APPLICATION LAYOUT WITH COMPONENTS					  05:02
+		wir definieren eine app-komponente. diese enthaelt weitere komponenten
+		(return nur marker momentan)
+		/*
+		  def app-komponente : <App />
+		*/
+		var App = React.createClass({
+		  render : function() {
+		    return (
+		      <div className="catch-of-the-day">
+		        <div className="menu">
+		          <Header />
+		        </div>
+		        <Order />
+		        <Inventory />
+		      </div>
+		    )
+		  }
+		});
+
+-- °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+-- 6 of 29 : PASSING DYNAMIC DATA WITH PROPS                            06:54
+		der header-komponente koennen props uebergeben werden, d.h. dort wo die komponente
+		verwendet wird => key=value
+		in der komponente selber (def der komp.) werden die props mit {this.props.key}
+		angesprochen
+		hinweis: in der konsole mit $r zugriff auf ReactDom. $r.props => direkt
+
+-- °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+-- 7 of 29 : ROUTING WITH REACT ROUTER                                  13:22
+		package react-router for routing (done in client)
+		npm install react-router --save-dev
+		--
+		then adding router-stuff to the js
+		--
+		in browser: http://localhost:3000/?#/?_k=fhom5d (StorePicker)
+			then adding manually /store/123/ (according to "/store/:storeId")
+			==> http://localhost:3000/?#/store/123/?_k=fhom5d (app is rendered now)
+		--
+		browser-history add-on helps away with the #...stuff in url (state)...
+			http://localhost:3000
+			http://localhost:3000/store/mine
+		--
+		set up 404 (not found)
+			define new compo NotFound. add route * using this component
+
+-- °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+-- 8 of 29 : USING UTILITY : HELPER FUNCTIONS IN REACT                  04:41
+		link function of helpers.js and use them in main.js
+		e.g. <input type="text" ref="storeId" value={h.getFunName()} required />
+
+-- °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+-- 9 of 29 : ALL ABOUT REACT EVENT LISTENERS                            08:36
+		events similar to js but in cross-browser-wrapper
+		treated more "inline", e.g. listen on form-submit (hit enter or hit
+		button submit of form :
+			<form className="store-selector" onSubmit={this.goToStore}>)
+			this refers to the component (here StorePicker)
+		--
+		das mit der routing-transition geht nid. habe noch gemacht:
+			npm install history
+		dann wieder probiert... dann ists gegangen. offenbar war die history zu alt...
+		--
+
+-- °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+-- 10 of 29 : UNDERSTANDING STATE                                       21:58
+		zentrales object, das alle infos zu den komponenten enthaelt (state-object, analog props-object)
+		alle anpassungen werden in diesem state-object gemacht und react updated dann DOM, wir machen keine anpassungen im html
+		momentan hat es (f12) unter Router ein State-objekt, aber noch nicht unter App...
+		A brief interlude: props vs state
+		https://facebook.github.io/react/docs/thinking-in-react.html
+		There are two types of "model" data in React: props and state. It's important to
+		understand the distinction between the two; skim the official React
+		(https://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html)
+		docs if you aren't sure what the difference is.
+			https://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html#components-are-just-state-machines
+			https://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html#how-state-works
+			https://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html#what-components-should-have-state
+			https://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html#what-should-go-in-state
+			https://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html#what-shouldnt-go-in-state
+		--
+		 feature of JSX called spread attributes: var component = <Component {...props} />;
+		 	The properties of the object that you pass in are copied onto the component's props.
+			https://facebook.github.io/react/docs/jsx-spread.html
+
+-- °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+-- 11 of 29 : LOADING DATA INTO STATE ONCLICK                           03:06
+		load content of sample-fishes.js into app by click on button in Inventory
+
+-- °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+-- 12 of 29 : DISPLAYING STATE WITH JSX                                 10:46
+		jsx does not have any loopin-syntax implemented, just plain old JS
+		Object.keys(obj) transforms all entries in the obj-list to an array. thats for
+		looping over the array by using map(), d.h. .map(this.renderFish) wendet auf
+		jedes array-element von fishes die function renderFish an
+		--
+
+-- °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+-- 13 of 29 : UPDATING OUR ORDER STATE                                  10:13
+		button changes text and behavior depending on isAvailable
+		add a fish to the order-state
