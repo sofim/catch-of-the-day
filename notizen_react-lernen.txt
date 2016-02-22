@@ -204,3 +204,15 @@
 		fishes + order müssen an komponente order übergeben werden
 		order-methods für berechnung total mit reduce, dann wieder aus objects
 		ein array machen zum anzeigen via .map(renderOrder)
+
+-- °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+-- 15 of 29 : PERSISTING STATE WITH FIREBASE                            14:00
+		from google. uses websockets. right editable form firebase dashboard,
+		syncs directly with state in react
+		sign up with firebase (https://www.firebase.com/login/) but we use re-base
+		together with firebase (signed up with my google-account)
+			npm install re-base --save-dev
+			then define a var with require re-base in app and hook it up with firebase
+			(url needed to our firebase cloud-account)
+		mit etwa 10 zeilen code hat man also persistenz pro shop separat fuer fishes mit live-updates auch bei mut in db-dashboard
+			https://sweltering-fire-6318.firebaseio.com/

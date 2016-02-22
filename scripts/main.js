@@ -15,17 +15,28 @@ var createBrowserHistory = require('history/lib/createBrowserHistory');
 //...link helper-functions in helpers.js
 var h = require('./helpers') ;
 
+//firebase
+var Rebase = require('re-base') ;
+var base = Rebase.createClass('https://sweltering-fire-6318.firebaseio.com/');
 
 /*
   def app-komponente : <App />
 */
 var App = React.createClass({
-  getInitialState : function () {
+  getInitialState : function () { //react-api
     // state is still null/empty
     return {
       fishes : {} ,
       order : {}
     }
+  } ,
+  //from facebook.github.io/react/docs/component-specs.html
+  componentDidMount : function() { //react-api
+    console.log(">>>>>>> component did mount");
+    base.syncState(this.props.params.storeId + '/fishes', {
+      context : this,
+      state : 'fishes'
+    });
   } ,
   addToOrder : function(key) {
     this.state.order[key] = this.state.order[key] + 1 || 1; //incre or set to 1 => no of ordered fishes of same key
