@@ -197,4 +197,4 @@
 -- °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 -- 13 of 29 : UPDATING OUR ORDER STATE                                  10:13
 		button changes text and behavior depending on isAvailable
-		add a fish to the order-state
+		add a fish to the order-state (but is not being displayed in order-gui up to now)
