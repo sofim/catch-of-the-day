@@ -226,3 +226,16 @@
 		--
 		componentWillUpdate reflects new state, e.g. adding order to order-state (stringify it)
 		and reset order state if it exists in componentDidMount (un-stringify it)
+
+-- °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+-- 17 of 29 : BI-DIRECTIONAL DATA FLOW WITH LINKSTATE                   16:03
+		by default react is uni-directional (flow of data). but we want to update (e.g.)
+		a fish's name in our Inventory and reflect this in the state, i.d. showing it
+		immediately over the whole app. how? two-way binding helpers (link state) in react.
+		e.g. link input-field to state, i.e. if input is changed, state-update is triggered.
+		works only for top-level entities, i.e. fishes and order. but we need it down deeper...
+		i.e. with nested objects. see react-catalyst for this (LinkedStateMixin).
+			npm install react-catalyst --save-dev
+		--
+		<input type="text" valueLink={linkState('fishes.'+key+'.name')} />
+		--

@@ -19,10 +19,15 @@ var h = require('./helpers') ;
 var Rebase = require('re-base') ;
 var base = Rebase.createClass('https://sweltering-fire-6318.firebaseio.com/');
 
+//import catalyst in our app
+var Catalyst = require('react-catalyst');
+
+
 /*
   def app-komponente : <App />
 */
 var App = React.createClass({
+  mixins : [Catalyst.LinkedStateMixin] ,
   getInitialState : function () { //react-api
     // state is still null/empty
     return {
@@ -87,7 +92,7 @@ var App = React.createClass({
           </ul>
         </div>
         <Order fishes={this.state.fishes} order={this.state.order} />
-        <Inventory addFish={this.addFish} loadSamples={this.loadSamples} />
+        <Inventory addFish={this.addFish} loadSamples={this.loadSamples} fishes={this.state.fishes} linkState={this.linkState}/>
       </div>
     )
   }
@@ -155,7 +160,7 @@ var AddFishForm = React.createClass({
         <input type="text" ref="name" placeholder="Fish Name"/>
         <input type="text" ref="price" placeholder="Fish Price" />
         <select ref="status">
-          <option value="available">Fresh!</option>
+          <option value="available">On Stock</option>
           <option value="unavailable">Sold Out!</option>
         </select>
         <textarea type="text" ref="desc" placeholder="Desc"></textarea>
@@ -196,7 +201,7 @@ var Order = React.createClass({
     var fish = this.props.fishes[key];
     var count = this.props.order[key];
     if (!fish) {
-      return(<li>key={key} | sorry, wait a second...</li>)
+      return(<li key={key}> sorry, wait a second...</li>)
     }
     return (
       <li key={key}>
@@ -206,7 +211,7 @@ var Order = React.createClass({
       </li>
     )
   } ,
-  render : function() {
+  render : function(key) {
     var orderIds = Object.keys(this.props.order); //arr of all ordered fishes
     var total = orderIds.reduce((prevTotal, key)=>{
       var fish = this.props.fishes[key];
@@ -222,7 +227,7 @@ var Order = React.createClass({
     return (
       <div className="order-wrap">
         <h2 className="order-title">Your Order</h2>
-        <ul className="order">
+        <ul className="order" key={key}>
           {orderIds.map(this.renderOrder)}
           <li className="total">
             <strong>Total:</strong>
@@ -239,10 +244,32 @@ var Order = React.createClass({
   def komponente : <Inventory />
 */
 var Inventory = React.createClass({
-  render : function() {
+  renderInventory : function(key) {
+    var fish = this.props.fishes[key] ;
+    var linkState = this.props.linkState ;
+    return (
+      <div className="fish-edit" key={key}>
+        {/* geht nicht mit fish.name : <input type="text" valueLink={linkState(fish.name)} /> */}
+        {/* aber zur anzeige des namens allein geht es...*/}
+        <input type="text" valueLink={linkState('fishes.'+key+'.name')} />
+        <input type="text" valueLink={linkState('fishes.'+key+'.price')} />
+        <select valueLink={linkState('fishes.'+key+'.status')}>
+          <option value="available">On Stock</option>
+          <option value="unavailable">Sold out</option>
+        </select>
+        <textarea valueLink={linkState('fishes.'+key+'.desc')}></textarea>
+        <input type="text" valueLink={linkState('fishes.'+key+'.image')} />
+        <button>Remove Fish</button>
+      </div>
+    )
+
+  },
+  render : function(key) {
     return (
       <div>
         <h4>Inventory</h4>
+        {/* alle fische auflisten */}
+        {Object.keys(this.props.fishes).map(this.renderInventory)}
         <hr />
         <AddFishForm {...this.props} />
         <button onClick={this.props.loadSamples}>Load Sample Data</button>
