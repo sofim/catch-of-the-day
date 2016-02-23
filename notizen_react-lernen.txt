@@ -239,3 +239,11 @@
 		--
 		<input type="text" valueLink={linkState('fishes.'+key+'.name')} />
 		--
+
+-- °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+-- 18 of 29 : UPDATING AND DELETING STATE                               10:52
+		damit das korrekte fischi deleted werden kann, muss bind(key) bei button hin:
+			<button onClick={this.props.removeFish.bind(null,key)}>Remove Fish</button>
+		--
+		nice fish-pic:
+		https://pixabay.com/static/uploads/photo/2013/07/13/11/32/fish-158336__180.png

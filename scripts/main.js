@@ -71,6 +71,15 @@ var App = React.createClass({
     // set state for fishes
     this.setState({ fishes : this.state.fishes });
   } ,
+  removeFish : function(key) {
+    console.log("user wants to remove this fish: " , this.state.fishes[key].name);
+    if (confirm("Are You Sure? Fish " + this.state.fishes[key].name + " will be removed...") ) {
+      //attention please: fish is going to be removed !!!
+      this.state.fishes[key] = null ;
+      this.setState({ fishes : this.state.fishes });
+    }
+
+  } ,
   loadSamples : function() {
     this.setState({ fishes : require('./sample-fishes.js') });
   } ,
@@ -92,7 +101,12 @@ var App = React.createClass({
           </ul>
         </div>
         <Order fishes={this.state.fishes} order={this.state.order} />
-        <Inventory addFish={this.addFish} loadSamples={this.loadSamples} fishes={this.state.fishes} linkState={this.linkState}/>
+        <Inventory addFish={this.addFish}
+          loadSamples={this.loadSamples}
+          fishes={this.state.fishes}
+          linkState={this.linkState}
+          removeFish={this.removeFish}
+        />
       </div>
     )
   }
@@ -200,8 +214,14 @@ var Order = React.createClass({
   renderOrder : function(key) {
     var fish = this.props.fishes[key];
     var count = this.props.order[key];
-    if (!fish) {
+    //console.log("hier order: ", JSON.stringify(this.props.fishes) === '{}');
+    //...falls fishes noch nich gefuellt ist:
+    if (JSON.stringify(this.props.fishes) === '{}') {
       return(<li key={key}> sorry, wait a second...</li>)
+    }
+    //...falls fischi in order von user aus inventar geloescht wurde:
+    if (!fish) {
+      return(<li key={key}> sorry, diesen fisch gibt es nümme...</li>)
     }
     return (
       <li key={key}>
@@ -259,7 +279,7 @@ var Inventory = React.createClass({
         </select>
         <textarea valueLink={linkState('fishes.'+key+'.desc')}></textarea>
         <input type="text" valueLink={linkState('fishes.'+key+'.image')} />
-        <button>Remove Fish</button>
+        <button onClick={this.props.removeFish.bind(null,key)}>Remove Fish</button>
       </div>
     )
 
