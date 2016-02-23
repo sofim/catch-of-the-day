@@ -26,8 +26,8 @@ var App = React.createClass({
   getInitialState : function () { //react-api
     // state is still null/empty
     return {
-      fishes : {} ,
-      order : {}
+      fishes : {} , //persistence: firebase
+      order : {}    //persistence: localstorage (da user-spezifisch)
     }
   } ,
   //from facebook.github.io/react/docs/component-specs.html
@@ -37,6 +37,23 @@ var App = React.createClass({
       context : this,
       state : 'fishes'
     });
+    // load from localStorage
+    var localStorageRef = localStorage.getItem('order-' + this.props.params.storeId);
+    if (localStorageRef) {//...it is not a brand-new=empty store...
+      //update state of component
+      //...you must un-stringify value and set it in state
+      this.setState({
+        order : JSON.parse(localStorageRef)
+      });
+    }
+  } ,
+  componentWillUpdate : function(nextProps, nextState) {
+    console.log(">>>>>>> componentWillUpdate" , nextState);
+    //...add new state zu localStorage (=one huge object)
+    //   key and value (value must be string)
+    localStorage.setItem('order-' + this.props.params.storeId, JSON.stringify(nextState.order));
+    //...if browser refreshes, you have to pluck this value againg => done in componentDidMount
+
   } ,
   addToOrder : function(key) {
     this.state.order[key] = this.state.order[key] + 1 || 1; //incre or set to 1 => no of ordered fishes of same key
@@ -179,10 +196,10 @@ var Order = React.createClass({
     var fish = this.props.fishes[key];
     var count = this.props.order[key];
     if (!fish) {
-      return(<li>key={key} | sorry, fish not available anymore..</li>)
+      return(<li>key={key} | sorry, wait a second...</li>)
     }
     return (
-      <li>
+      <li key={key}>
         <span>{count}</span>lbs
         {fish.name}
         <span className="price">{h.formatPrice(count * fish.price)}</span>

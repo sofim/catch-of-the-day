@@ -216,3 +216,13 @@
 			(url needed to our firebase cloud-account)
 		mit etwa 10 zeilen code hat man also persistenz pro shop separat fuer fishes mit live-updates auch bei mut in db-dashboard
 			https://sweltering-fire-6318.firebaseio.com/
+
+-- °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+-- 16 of 29 : PERSISTING STATE WITH LOCALSTORAGE                        11:03
+		die fische selber, das inventar, wird also unabhängig vom user /sesssion
+		in firebase gespeichert.
+		aber die bestellung? diese ist ja user-spezifisch und soll hier nicht in firebase
+		gespeichert werden sondern in cooky oder in local-storage
+		--
+		componentWillUpdate reflects new state, e.g. adding order to order-state (stringify it)
+		and reset order state if it exists in componentDidMount (un-stringify it)
