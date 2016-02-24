@@ -254,3 +254,30 @@
 			var removeButton = <button onClick={this.props.removeFromOrder.bind(null,key)}>&times;</button> ;
 			...and in remove-method:
 			delete this.state.order[key] ;
+
+-- °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+-- 19 of 29 : ANIMATING REACT COMPONENTS                                24:53
+		animations package in react: is already installed but trying to install
+		npm install react-addons-css-transition-group --save-dev
+		>>>>>>>>>>>>>>>>>>>>>>> gives this:
+		:\sofim_git_repos\react_lernen\catch-of-the-day>npm install react-addons-css-transition-group --save-dev
+pm WARN package.json catch-of-the-day@1.0.0 No repository field.
+pm WARN peerDependencies The peer dependency react@^0.14.7 included from react-addons-css-transition-group will no
+pm WARN peerDependencies longer be automatically installed to fulfill the peerDependency
+pm WARN peerDependencies in npm 3+. Your application will need to depend on it explicitly.
+pm ERR! Windows_NT 6.1.7601
+pm ERR! argv "G:\\server\\nodejs\\node.exe" "G:\\server\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "react-a
+dons-css-transition-group" "--save-dev"
+pm ERR! node v4.2.6
+pm ERR! npm  v2.14.12
+pm ERR! code EPEERINVALID
+
+pm ERR! peerinvalid The package react@0.14.0 does not satisfy its siblings' peerDependencies requirements!
+
+pm ERR! Please include the following file with any support request:
+pm ERR!     G:\sofim_git_repos\react_lernen\catch-of-the-day\npm-debug.log
+
+:\sofim_git_repos\react_lernen\catch-of-the-day>
+		<<<<<<<<<<<<<<<<<<<<<<<<
+	--
+	styles in _animations.styl

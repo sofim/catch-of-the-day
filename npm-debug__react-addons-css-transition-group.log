@@ -1,0 +1,264 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'G:\\server\\nodejs\\node.exe',
+1 verbose cli   'G:\\server\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'react-addons-css-transition-group',
+1 verbose cli   '--save-dev' ]
+2 info using npm@2.14.12
+3 info using node@v4.2.6
+4 verbose install initial load of G:\sofim_git_repos\react_lernen\catch-of-the-day\package.json
+5 warn package.json catch-of-the-day@1.0.0 No repository field.
+6 verbose installManyTop reading scoped package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\autobind-decorator\package.json
+7 verbose installManyTop reading scoped package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\babel\package.json
+8 verbose installManyTop reading scoped package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\babelify\package.json
+9 verbose installManyTop reading scoped package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\browser-sync\package.json
+10 verbose installManyTop reading scoped package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\browserify\package.json
+11 verbose installManyTop reading scoped package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\connect-history-api-fallback\package.json
+12 verbose installManyTop reading scoped package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\firebase\package.json
+13 verbose installManyTop reading scoped package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\graceful-fs\package.json
+14 verbose installManyTop reading scoped package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\gulp\package.json
+15 verbose installManyTop reading scoped package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\gulp-autoprefixer\package.json
+16 verbose installManyTop reading scoped package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\gulp-notify\package.json
+17 verbose installManyTop reading scoped package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\gulp-rename\package.json
+18 verbose installManyTop reading scoped package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\gulp-stylus\package.json
+19 verbose installManyTop reading scoped package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\gulp-uglify\package.json
+20 verbose installManyTop reading scoped package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\gulp-util\package.json
+21 verbose installManyTop reading scoped package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\history\package.json
+22 verbose installManyTop reading scoped package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\install\package.json
+23 verbose installManyTop reading scoped package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\lodash\package.json
+24 verbose installManyTop reading scoped package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\re-base\package.json
+25 verbose installManyTop reading scoped package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\react\package.json
+26 verbose installManyTop reading scoped package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\react-addons-css-transition-group\package.json
+27 verbose installManyTop reading scoped package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\react-catalyst\package.json
+28 verbose installManyTop reading scoped package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\react-dom\package.json
+29 verbose installManyTop reading scoped package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\react-mixin\package.json
+30 verbose installManyTop reading scoped package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\react-router\package.json
+31 verbose installManyTop reading scoped package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\vinyl-buffer\package.json
+32 verbose installManyTop reading scoped package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\vinyl-source-stream\package.json
+33 verbose installManyTop reading scoped package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\watchify\package.json
+34 info package.json firebase@2.3.1 No license field.
+35 info package.json gulp-notify@2.2.0 No license field.
+36 info package.json gulp-rename@1.2.2 No license field.
+37 info package.json autobind-decorator@1.3.2 No repository field.
+38 info package.json re-base@1.5.1 No license field.
+39 info package.json install@0.1.8 No license field.
+40 info package.json react-addons-css-transition-group@0.14.0 No repository field.
+41 info package.json react-catalyst@0.3.0 No license field.
+42 verbose readDependencies loading dependencies from G:\sofim_git_repos\react_lernen\catch-of-the-day\package.json
+43 verbose install react-addons-css-transition-group is installed as 0.14.0
+44 silly cache add args [ 'react-addons-css-transition-group', null ]
+45 verbose cache add spec react-addons-css-transition-group
+46 silly cache add parsed spec Result {
+46 silly cache add   raw: 'react-addons-css-transition-group',
+46 silly cache add   scope: null,
+46 silly cache add   name: 'react-addons-css-transition-group',
+46 silly cache add   rawSpec: '',
+46 silly cache add   spec: 'latest',
+46 silly cache add   type: 'tag' }
+47 silly addNamed react-addons-css-transition-group@latest
+48 verbose addNamed "latest" is being treated as a dist-tag for react-addons-css-transition-group
+49 info addNameTag [ 'react-addons-css-transition-group', 'latest' ]
+50 silly mapToRegistry name react-addons-css-transition-group
+51 silly mapToRegistry using default registry
+52 silly mapToRegistry registry https://registry.npmjs.org/
+53 silly mapToRegistry uri https://registry.npmjs.org/react-addons-css-transition-group
+54 verbose addNameTag registry:https://registry.npmjs.org/react-addons-css-transition-group not in flight; fetching
+55 verbose request uri https://registry.npmjs.org/react-addons-css-transition-group
+56 verbose request no auth needed
+57 info attempt registry request try #1 at 13:56:42
+58 verbose request id d57e409fe1f902f9
+59 http request GET https://registry.npmjs.org/react-addons-css-transition-group
+60 http 200 https://registry.npmjs.org/react-addons-css-transition-group
+61 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+61 verbose headers   etag: '"6W8BTPY3BG76IN502MEKFE2CX"',
+61 verbose headers   'content-type': 'application/json',
+61 verbose headers   'cache-control': 'max-age=300',
+61 verbose headers   'content-length': '15159',
+61 verbose headers   'accept-ranges': 'bytes',
+61 verbose headers   date: 'Wed, 24 Feb 2016 12:56:45 GMT',
+61 verbose headers   via: '1.1 varnish',
+61 verbose headers   age: '0',
+61 verbose headers   connection: 'keep-alive',
+61 verbose headers   'x-served-by': 'cache-ams4134-AMS',
+61 verbose headers   'x-cache': 'HIT',
+61 verbose headers   'x-cache-hits': '1',
+61 verbose headers   'x-timer': 'S1456318605.404724,VS0,VE98',
+61 verbose headers   vary: 'Accept' }
+62 silly get cb [ 200,
+62 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+62 silly get     etag: '"6W8BTPY3BG76IN502MEKFE2CX"',
+62 silly get     'content-type': 'application/json',
+62 silly get     'cache-control': 'max-age=300',
+62 silly get     'content-length': '15159',
+62 silly get     'accept-ranges': 'bytes',
+62 silly get     date: 'Wed, 24 Feb 2016 12:56:45 GMT',
+62 silly get     via: '1.1 varnish',
+62 silly get     age: '0',
+62 silly get     connection: 'keep-alive',
+62 silly get     'x-served-by': 'cache-ams4134-AMS',
+62 silly get     'x-cache': 'HIT',
+62 silly get     'x-cache-hits': '1',
+62 silly get     'x-timer': 'S1456318605.404724,VS0,VE98',
+62 silly get     vary: 'Accept' } ]
+63 verbose get saving react-addons-css-transition-group to C:\Users\hpsof\AppData\Roaming\npm-cache\registry.npmjs.org\react-addons-css-transition-group\.cache.json
+64 silly addNameTag next cb for react-addons-css-transition-group with tag latest
+65 silly addNamed react-addons-css-transition-group@0.14.7
+66 verbose addNamed "0.14.7" is a plain semver version for react-addons-css-transition-group
+67 silly mapToRegistry name react-addons-css-transition-group
+68 silly mapToRegistry using default registry
+69 silly mapToRegistry registry https://registry.npmjs.org/
+70 silly mapToRegistry uri https://registry.npmjs.org/react-addons-css-transition-group
+71 verbose addRemoteTarball https://registry.npmjs.org/react-addons-css-transition-group/-/react-addons-css-transition-group-0.14.7.tgz not in flight; adding
+72 verbose addRemoteTarball [ 'https://registry.npmjs.org/react-addons-css-transition-group/-/react-addons-css-transition-group-0.14.7.tgz',
+72 verbose addRemoteTarball   'e8742ba0f695221018234fbbdc4b5a138bb0faf3' ]
+73 info retry fetch attempt 1 at 13:56:42
+74 info attempt registry request try #1 at 13:56:42
+75 http fetch GET https://registry.npmjs.org/react-addons-css-transition-group/-/react-addons-css-transition-group-0.14.7.tgz
+76 http fetch 200 https://registry.npmjs.org/react-addons-css-transition-group/-/react-addons-css-transition-group-0.14.7.tgz
+77 silly fetchAndShaCheck shasum e8742ba0f695221018234fbbdc4b5a138bb0faf3
+78 verbose addTmpTarball C:\Users\hpsof\AppData\Local\Temp\npm-10468-8a3b5ef5\registry.npmjs.org\react-addons-css-transition-group\-\react-addons-css-transition-group-0.14.7.tgz not in flight; adding
+79 verbose addTmpTarball already have metadata; skipping unpack for react-addons-css-transition-group@0.14.7
+80 silly cache afterAdd react-addons-css-transition-group@0.14.7
+81 verbose afterAdd C:\Users\hpsof\AppData\Roaming\npm-cache\react-addons-css-transition-group\0.14.7\package\package.json not in flight; writing
+82 verbose afterAdd C:\Users\hpsof\AppData\Roaming\npm-cache\react-addons-css-transition-group\0.14.7\package\package.json written
+83 silly install resolved [ { name: 'react-addons-css-transition-group',
+83 silly install resolved     version: '0.14.7',
+83 silly install resolved     main: 'index.js',
+83 silly install resolved     repository:
+83 silly install resolved      { type: 'git',
+83 silly install resolved        url: 'git+https://github.com/facebook/react.git' },
+83 silly install resolved     keywords: [ 'react', 'react-addon' ],
+83 silly install resolved     license: 'BSD-3-Clause',
+83 silly install resolved     dependencies: {},
+83 silly install resolved     peerDependencies: { react: '^0.14.7' },
+83 silly install resolved     description: 'This package provides the React CSSTransitionGroup add-on.',
+83 silly install resolved     bugs: { url: 'https://github.com/facebook/react/issues' },
+83 silly install resolved     homepage: 'https://github.com/facebook/react#readme',
+83 silly install resolved     _id: 'react-addons-css-transition-group@0.14.7',
+83 silly install resolved     _shasum: 'e8742ba0f695221018234fbbdc4b5a138bb0faf3',
+83 silly install resolved     _resolved: 'https://registry.npmjs.org/react-addons-css-transition-group/-/react-addons-css-transition-group-0.14.7.tgz',
+83 silly install resolved     _from: 'react-addons-css-transition-group@latest',
+83 silly install resolved     scripts: {},
+83 silly install resolved     _npmVersion: '2.14.12',
+83 silly install resolved     _nodeVersion: '4.2.6',
+83 silly install resolved     _npmUser: { name: 'graue', email: 'scott@oceanbase.org' },
+83 silly install resolved     dist:
+83 silly install resolved      { shasum: 'e8742ba0f695221018234fbbdc4b5a138bb0faf3',
+83 silly install resolved        tarball: 'http://registry.npmjs.org/react-addons-css-transition-group/-/react-addons-css-transition-group-0.14.7.tgz' },
+83 silly install resolved     maintainers: [ [Object], [Object], [Object] ],
+83 silly install resolved     directories: {} } ]
+84 info install react-addons-css-transition-group@0.14.7 into G:\sofim_git_repos\react_lernen\catch-of-the-day
+85 info installOne react-addons-css-transition-group@0.14.7
+86 verbose installOne of react-addons-css-transition-group to G:\sofim_git_repos\react_lernen\catch-of-the-day not in flight; installing
+87 verbose lock using C:\Users\hpsof\AppData\Roaming\npm-cache\_locks\react-addons-css-transit-e931faa2055fbc92.lock for G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\react-addons-css-transition-group
+88 silly install write writing react-addons-css-transition-group 0.14.7 to G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\react-addons-css-transition-group
+89 verbose unbuild node_modules\react-addons-css-transition-group
+90 info preuninstall react-addons-css-transition-group@0.14.0
+91 info uninstall react-addons-css-transition-group@0.14.0
+92 verbose unbuild rmStuff react-addons-css-transition-group@0.14.0 from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules
+93 info postuninstall react-addons-css-transition-group@0.14.0
+94 silly gentlyRm G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\react-addons-css-transition-group is being purged from base G:\sofim_git_repos\react_lernen\catch-of-the-day
+95 verbose gentlyRm don't care about contents; nuking G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\react-addons-css-transition-group
+96 silly vacuum-fs purging G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\react-addons-css-transition-group
+97 silly vacuum-fs quitting because other entries in G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules
+98 verbose tar unpack C:\Users\hpsof\AppData\Roaming\npm-cache\react-addons-css-transition-group\0.14.7\package.tgz
+99 verbose tar unpacking to G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\react-addons-css-transition-group
+100 silly gentlyRm G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\react-addons-css-transition-group is being purged
+101 verbose gentlyRm don't care about contents; nuking G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\react-addons-css-transition-group
+102 silly gunzTarPerm modes [ '777', '666' ]
+103 silly gunzTarPerm extractEntry package.json
+104 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+105 silly gunzTarPerm extractEntry README.md
+106 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+107 silly gunzTarPerm extractEntry LICENSE
+108 silly gunzTarPerm modified mode [ 'LICENSE', 420, 438 ]
+109 silly gunzTarPerm extractEntry index.js
+110 silly gunzTarPerm modified mode [ 'index.js', 420, 438 ]
+111 silly gunzTarPerm extractEntry PATENTS
+112 silly gunzTarPerm modified mode [ 'PATENTS', 420, 438 ]
+113 verbose write writing to G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\react-addons-css-transition-group\package.json
+114 info preinstall react-addons-css-transition-group@0.14.7
+115 verbose readDependencies loading dependencies from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\react-addons-css-transition-group\package.json
+116 silly prepareForInstallMany adding react@^0.14.7 from react-addons-css-transition-group peerDependencies
+117 warn peerDependencies The peer dependency react@^0.14.7 included from react-addons-css-transition-group will no
+118 warn peerDependencies longer be automatically installed to fulfill the peerDependency
+119 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
+120 verbose readDependencies loading dependencies from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\react-addons-css-transition-group\package.json
+121 silly install resolved []
+122 verbose about to build G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\react-addons-css-transition-group
+123 info build G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\react-addons-css-transition-group
+124 info linkStuff react-addons-css-transition-group@0.14.7
+125 silly linkStuff react-addons-css-transition-group@0.14.7 has G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules as its parent node_modules
+126 verbose linkBins react-addons-css-transition-group@0.14.7
+127 verbose linkMans react-addons-css-transition-group@0.14.7
+128 verbose rebuildBundles react-addons-css-transition-group@0.14.7
+129 info install react-addons-css-transition-group@0.14.7
+130 info postinstall react-addons-css-transition-group@0.14.7
+131 verbose readDependencies loading dependencies from G:\sofim_git_repos\react_lernen\catch-of-the-day\package.json
+132 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\autobind-decorator\package.json
+133 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\babel\package.json
+134 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\babelify\package.json
+135 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\browser-sync\package.json
+136 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\browserify\package.json
+137 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\connect-history-api-fallback\package.json
+138 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\firebase\package.json
+139 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\graceful-fs\package.json
+140 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\gulp\package.json
+141 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\gulp-autoprefixer\package.json
+142 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\gulp-notify\package.json
+143 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\gulp-rename\package.json
+144 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\gulp-stylus\package.json
+145 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\gulp-uglify\package.json
+146 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\gulp-util\package.json
+147 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\history\package.json
+148 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\install\package.json
+149 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\lodash\package.json
+150 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\re-base\package.json
+151 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\react\package.json
+152 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\react-addons-css-transition-group\package.json
+153 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\react-catalyst\package.json
+154 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\react-dom\package.json
+155 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\react-mixin\package.json
+156 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\react-router\package.json
+157 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\vinyl-buffer\package.json
+158 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\vinyl-source-stream\package.json
+159 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\watchify\package.json
+160 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\.bin\babel\package.json
+161 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\.bin\babel-external-helpers\package.json
+162 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\.bin\babel-external-helpers.cmd\package.json
+163 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\.bin\babel-node\package.json
+164 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\.bin\babel-node.cmd\package.json
+165 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\.bin\babel-plugin\package.json
+166 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\.bin\babel-plugin.cmd\package.json
+167 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\.bin\babel.cmd\package.json
+168 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\.bin\browser-sync\package.json
+169 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\.bin\browser-sync.cmd\package.json
+170 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\.bin\browserify\package.json
+171 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\.bin\browserify.cmd\package.json
+172 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\.bin\gulp\package.json
+173 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\.bin\gulp.cmd\package.json
+174 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\.bin\watchify\package.json
+175 verbose targetResolver reading package data from G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\.bin\watchify.cmd\package.json
+176 verbose already installed skipping react@^0.14.7 G:\sofim_git_repos\react_lernen\catch-of-the-day
+177 silly install resolved []
+178 verbose unlock done using C:\Users\hpsof\AppData\Roaming\npm-cache\_locks\react-addons-css-transit-e931faa2055fbc92.lock for G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\react-addons-css-transition-group
+179 verbose validateInstall loading G:\sofim_git_repos\react_lernen\catch-of-the-day\package.json for validation
+180 verbose stack Error: The package react@0.14.0 does not satisfy its siblings' peerDependencies requirements!
+180 verbose stack     at G:\server\nodejs\node_modules\npm\lib\install.js:125:32
+180 verbose stack     at G:\server\nodejs\node_modules\npm\lib\install.js:268:7
+180 verbose stack     at G:\server\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:142:5
+180 verbose stack     at G:\server\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:263:14
+180 verbose stack     at cb (G:\server\nodejs\node_modules\npm\node_modules\slide\lib\async-map.js:47:24)
+180 verbose stack     at G:\server\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:263:14
+180 verbose stack     at cb (G:\server\nodejs\node_modules\npm\node_modules\slide\lib\async-map.js:47:24)
+180 verbose stack     at G:\server\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:263:14
+180 verbose stack     at cb (G:\server\nodejs\node_modules\npm\node_modules\slide\lib\async-map.js:47:24)
+180 verbose stack     at G:\server\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:263:14
+181 verbose cwd G:\sofim_git_repos\react_lernen\catch-of-the-day
+182 error Windows_NT 6.1.7601
+183 error argv "G:\\server\\nodejs\\node.exe" "G:\\server\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "react-addons-css-transition-group" "--save-dev"
+184 error node v4.2.6
+185 error npm  v2.14.12
+186 error code EPEERINVALID
+187 error peerinvalid The package react@0.14.0 does not satisfy its siblings' peerDependencies requirements!
+188 verbose exit [ 1, true ]

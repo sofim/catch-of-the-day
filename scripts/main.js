@@ -1,5 +1,6 @@
 var React = require('react');
 var ReactDom = require('react-dom');
+var CSSTransitionGroup = require('react-addons-css-transition-group');
 
 var ReactRouter = require('react-router');
 var Router = ReactRouter.Router;
@@ -235,10 +236,19 @@ var Order = React.createClass({
     }
     return (
       <li key={key}>
-        <span>{count}</span>lbs
-        {fish.name}
+        <span>
+          <CSSTransitionGroup
+            component="span"
+            transitionName="count"
+            transitionEnterTimeout={500}
+            transitionLeaveTimeout={500}
+            className="count"
+          >
+            <span key={count}>{count}</span>
+          </CSSTransitionGroup>
+          &nbsp; lbs &nbsp; {fish.name} &nbsp; {removeButton}
+        </span>
         <span className="price">{h.formatPrice(count * fish.price)}</span>
-        {removeButton}
       </li>
     )
   } ,
@@ -253,18 +263,24 @@ var Order = React.createClass({
       }
       //in no fish or not available
       return prevTotal ;
-    },0) ; //,0 : wert, falls orderIds leer ist, was am anfang so ist.
+    },0) ; //,0 ==> wert, falls orderIds leer ist, was am anfang so ist.
 
     return (
       <div className="order-wrap">
         <h2 className="order-title">Your Order</h2>
-        <ul className="order" key={key}>
+        <CSSTransitionGroup
+            className="order"
+            key={key} component="ul"
+            transitionName="order"
+            transitionEnterTimeout={1000}
+            transitionLeaveTimeout={1000}
+        >
           {orderIds.map(this.renderOrder)}
           <li className="total">
             <strong>Total:</strong>
             {h.formatPrice(total)}
           </li>
-        </ul>
+        </CSSTransitionGroup>
       </div>
     )
   }
