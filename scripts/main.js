@@ -64,6 +64,11 @@ var App = React.createClass({
     this.state.order[key] = this.state.order[key] + 1 || 1; //incre or set to 1 => no of ordered fishes of same key
     this.setState({ order : this.state.order });
   } ,
+  removeFromOrder : function(key) {
+    //update order state object and re-set it
+    delete this.state.order[key] ;
+    this.setState({ order : this.state.order });
+  } ,
   addFish : function(fish) {
     var timestamp = (new Date()).getTime();
     // update state object
@@ -100,7 +105,10 @@ var App = React.createClass({
             {Object.keys(this.state.fishes).map(this.renderFish) }
           </ul>
         </div>
-        <Order fishes={this.state.fishes} order={this.state.order} />
+        <Order fishes={this.state.fishes}
+          order={this.state.order}
+          removeFromOrder={this.removeFromOrder}
+        />
         <Inventory addFish={this.addFish}
           loadSamples={this.loadSamples}
           fishes={this.state.fishes}
@@ -214,6 +222,8 @@ var Order = React.createClass({
   renderOrder : function(key) {
     var fish = this.props.fishes[key];
     var count = this.props.order[key];
+    //knopf programmatisch definieren zum einsetzen in return ...
+    var removeButton = <button onClick={this.props.removeFromOrder.bind(null,key)}>&times;</button> ;
     //console.log("hier order: ", JSON.stringify(this.props.fishes) === '{}');
     //...falls fishes noch nich gefuellt ist:
     if (JSON.stringify(this.props.fishes) === '{}') {
@@ -221,13 +231,14 @@ var Order = React.createClass({
     }
     //...falls fischi in order von user aus inventar geloescht wurde:
     if (!fish) {
-      return(<li key={key}> sorry, diesen fisch gibt es nümme...</li>)
+      return(<li key={key}> sorry, diesen fisch gibt es nümme... {removeButton}</li>)
     }
     return (
       <li key={key}>
         <span>{count}</span>lbs
         {fish.name}
         <span className="price">{h.formatPrice(count * fish.price)}</span>
+        {removeButton}
       </li>
     )
   } ,
