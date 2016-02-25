@@ -281,3 +281,32 @@ pm ERR!     G:\sofim_git_repos\react_lernen\catch-of-the-day\npm-debug.log
 		<<<<<<<<<<<<<<<<<<<<<<<<
 	--
 	styles in _animations.styl
+
+-- °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+-- 20 of 29 : COMPONENT VALIDATION WITH PROPTYPES                       10:03
+		propTypes = sort of validation for component, e.g. Header-component: how to
+		tell user(=prog) that he forgot to use/set tagline for the component? or
+		tell him: why do you set a number, i want a string as tagline!
+		example: A basic tabs component, with a few customizable props
+		we want to use this component https://github.com/Legitcode/tabs/blob/master/src/tab.jsx
+			there is a definition propTypes for what is expected
+			==> makes component a bit more resilient!
+		--
+		https://facebook.github.io/react/docs/reusable-components.html
+		example: <Header - component, check tagline is string and is required
+		//validation:
+		propTypes : {
+			tagline : React.PropTypes.string.isRequired
+		}
+
+-- °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+-- 21 of 29 : CHUNKING OUR CODE INTO ES6 MODULES                        11:49
+		recommended to build react-apps with ES6
+		http://babeljs.io/ (babel is a js-compiler with support for JSX and flow)
+		nimmt es6 code und spickt ihn als es5 code aus, so dass die browser funktionieren
+		damit (es6 wird noch nicht bei allen unterstützt)
+		--
+		idee hier: alle komponenten (selber gemachten) in catch-of-the-day auslagern
+		und sie so einbinden wie die anderen externen komponenten.
+		siehe bsp mit NotFound - komponente (da diese einfach ist):
+			in sep. file in verz. components auslagern dann importieren in main

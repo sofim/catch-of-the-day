@@ -24,6 +24,10 @@ var base = Rebase.createClass('https://sweltering-fire-6318.firebaseio.com/');
 var Catalyst = require('react-catalyst');
 
 
+//import our own components
+import NotFound from './components/NotFound'; //ES6-way of do a "rquire"
+
+
 /*
   def app-komponente : <App />
 */
@@ -213,6 +217,10 @@ var Header = React.createClass({
         <h3 className="tagline"><span>{this.props.tagline} von {this.props.datum}</span></h3>
       </header>
     )
+  } ,
+  //validation:
+  propTypes : {
+    tagline : React.PropTypes.string.isRequired
   }
 });
 
@@ -309,7 +317,6 @@ var Inventory = React.createClass({
         <button onClick={this.props.removeFish.bind(null,key)}>Remove Fish</button>
       </div>
     )
-
   },
   render : function(key) {
     return (
@@ -323,6 +330,10 @@ var Inventory = React.createClass({
 
       </div>
     )
+  } ,
+  //validation:
+  propTypes : {
+    loadSamples : React.PropTypes.func.isRequired
   }
 });
 
@@ -353,17 +364,6 @@ var StorePicker = React.createClass({
   }
 });
 
-
-/*
-  def komponente NotFound : <NotFound/>
-*/
-var NotFound = React.createClass({
-  render : function() {
-    return (
-      <h1>Not Found!</h1>
-    )
-  }
-});
 
 /*
   routes : jsx
