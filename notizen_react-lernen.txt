@@ -16,15 +16,52 @@
 --		 https://orktes.github.io/atom-react/
 --  4. gulp : https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md
 --		 Grunt and Gulp do exactly the same thing. (build-tool)
---		 install with : npm install gulp -g                        - OK
---             dann : npm install                                - OK
+--		 install with     : npm install --global gulp-cli          - OK
+--     dann in projverz : npm install --save-dev gulp            - OK
 --	5. upgrade node - via download node-v4.2.6-x64.msi           - OK
 --		 npm cache clean
 --		 npm install
 --
 -- 	6. mit gulp kann app gestartet werden, browser oeffnet automatisch (localhost:3000)
 --     anpassungen erfolgen reactive !
+--
+********************************************************************************
+node und npm aktualisieren
+--------------------------
+node via download msi
+npm install npm -g
+G:\sofim_git_repos\react_lernen\catch-of-the-day>node -v && npm -v
+v4.3.1
+3.7.5
+npm update -g
+npm list
+...
+npm ERR! extraneous: graceful-fs@4.1.3 G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\graceful-fs
+npm ERR! extraneous: lodash@4.5.1 G:\sofim_git_repos\react_lernen\catch-of-the-day\node_modules\lodash
+--
+npm prune
+	Remove extraneous packages
+--
+G:\sofim_git_repos\react_lernen\catch-of-the-day>npm prune
+npm WARN package.json catch-of-the-day@1.0.0 No repository field.
+unbuild graceful-fs@4.1.3
+unbuild lodash@4.5.1
+*******************************************************************************
 
+-- °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+--		>>>>>> store mit daten in firebase : magnificent-fierce-lives <<<<<<<<<
+--
+--		folgende warnung erscheint immer. sobald das history-zeugs implementiert ist
+--		[in den videos nicht genau gleich gemacht wie im code...]
+--		Warning: [react-router] It appears you have provided a deprecated history
+--			object to `<Router/>`, please use a history provided by React Router with
+--			`import { browserHistory } from 'react-router'` or `import { hashHistory }
+--			from 'react-router'`. If you are using a custom history please create it
+--			with `useRouterHistory`, see http://tiny.cc/router-usinghistory for details.
+--		Warning: [react-router] `props.history` and `context.history` are deprecated.
+--			Please use `context.router`. http://tiny.cc/router-contextchanges
+--		Warning: [history] pushState is deprecated; use push instead
+--
 -- °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 -- 1 of 29 : DEVELOPMENT ENVIRONMENT SETUP WITH GULP + BROWSERIFY				12:38
 		installation and setup (siehe oben pkt 1 bis 6). als editor : atom
@@ -310,3 +347,41 @@ pm ERR!     G:\sofim_git_repos\react_lernen\catch-of-the-day\npm-debug.log
 		und sie so einbinden wie die anderen externen komponenten.
 		siehe bsp mit NotFound - komponente (da diese einfach ist):
 			in sep. file in verz. components auslagern dann importieren in main
+
+-- °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+-- 22 of 29 : ES6 COMPONENTS EXTENDED                                   15:47
+		chunk out more components...
+		---
+		beachten: components in uvz
+				import React from 'react' ;                           //...brauchen alle
+				import AddFishForm from '../components/AddFishForm';  //...compo verwendet andere kompo
+				import h     from '../helpers' ;                      //...oder eigene methoden
+				import CSSTransitionGroup from 'react-addons-css-transition-group' ; //...oder andere react-kompo
+		    ...
+				code fuer kompo : var Inventory = React.createClass({....
+				...
+				export default Inventory ;   // export nicht vergessen in kompo-file
+				---
+				in main.js : import nicht vergessen der kompo, z.b.
+				import Inventory from './components/Inventory';
+		---
+		refactoring main.js also with imports instead of require...
+			import {Router , Route} from 'react-router' ; //with es6 : just import modules needed
+		---
+		siehe ganz oben: node und npm neu installieren, dann prune, dann
+			npm install history (hat funktioniert jetzt ohne fehler)
+		---
+		in kompo StorePicker funktioniert pushState (mixin: History) resp transitionTo (mixin: Navigation) nicht mehr...
+			npm install --save react-router  //react-router@2.0.0
+		---
+		https://github.com/reactjs/react-router/blob/master/upgrade-guides/v2.0.0.md
+		--
+		in main.js : import { browserHistory } from 'react-router';
+								 dann ...
+							   <Router history={ browserHistory } >
+		in StorePicker.js:
+		              import { browserHistory } from 'react-router';
+									dann ...
+									browserHistory.push('/store/' + storeId);
+
+		resultat: keine depricated meldungen mehr und es funktioniert so...
