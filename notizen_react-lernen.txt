@@ -385,3 +385,36 @@ pm ERR!     G:\sofim_git_repos\react_lernen\catch-of-the-day\npm-debug.log
 									browserHistory.push('/store/' + storeId);
 
 		resultat: keine depricated meldungen mehr und es funktioniert so...
+
+
+-- °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+-- 23 of 29 : CREATING REACT CLASSES WITH ES6                           03:19
+		ES6 has real classes ! but: no mixins, no autobinds !!
+			d.h. "this" muss explizit an die komponente gebunden werden
+		https://facebook.github.io/react/docs/reusable-components.html#es6-classes
+		--
+		example: NotFound.js
+
+-- °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+-- 24 of 29 : ES6 AND REACT MIXINS                                      02:06
+		falls in classes mixins benoetigt werden : brigand /react-mixin project
+-- 25 of 29 : AUTOBINDING THIS WITH ES7 DECORATORS                      05:47
+		solving problem with keyword "this" (in es-classes wird this in den methoden
+		nicht autom. an die komponente gebunden)
+		1. loesung : in render (dort ist this nicht null )
+								 ==> ...   onSubmit={this.goToStore.bind(this)}
+		2. loesung : use autobind decorator
+								 github.com/andreypopp/autobind-decorator
+								 --
+								 npm install autobind-decorator --save-dev
+								 --
+								 import autobind from 'autobind-decorator';
+								 ...
+								 //mark methods for autobinding with (=decoration):
+								 @autobind
+								 //you can also decorate whole class = all methods are bound
+								 !!!!!
+								 damit das geht, mus im gulpfile.js folgendes eingeschaltet sein:
+								 transform:  [babelify.configure({stage : 0 })]
+								 // stage 0 schaltet ALLE experiment. features fuer es7 ein,
+								 //         nicht nur decorations

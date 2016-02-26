@@ -8,11 +8,6 @@ var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 ...to this: */
 import {Router , Route} from 'react-router' ; //with es6 : just import modules needed
-
-// -- https://github.com/reactjs/history
-// -- enables browser-history ("push-state")
-//var createBrowserHistory = require('history/lib/createBrowserHistory'); //--until lesson 22
-//--on within lesson 22:
 import { browserHistory } from 'react-router';
 
 //import our own components(ES6-way of do a "rquire")
