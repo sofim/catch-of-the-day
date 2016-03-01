@@ -418,3 +418,13 @@ pm ERR!     G:\sofim_git_repos\react_lernen\catch-of-the-day\npm-debug.log
 								 transform:  [babelify.configure({stage : 0 })]
 								 // stage 0 schaltet ALLE experiment. features fuer es7 ein,
 								 //         nicht nur decorations
+
+
+ -- °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+ -- 26 of 29 : HANDLING REACT PROPTYPES WITH ES6                         01:03
+ 		after def of class (example Header) put :
+		 Header.propTypes = {
+		   tagline : React.PropTypes.string.isRequired
+		 }
+
+	

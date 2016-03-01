@@ -4,8 +4,8 @@
 
 import React from 'react' ;  //dependency looked up in folder node_modules
 
-var Header = React.createClass({
-  render : function() {
+class Header extends React.Component {
+  render() {
     console.log(this.props);
     return (
       <header className="top">
@@ -18,12 +18,13 @@ var Header = React.createClass({
         <h3 className="tagline"><span>{this.props.tagline} von {this.props.datum}</span></h3>
       </header>
     )
-  } ,
-  //validation:
-  propTypes : {
-    tagline : React.PropTypes.string.isRequired
   }
-});
+}
+
+//validation:
+Header.propTypes = {
+  tagline : React.PropTypes.string.isRequired
+}
 
 // we must export it to be able to import it in main.js
 export default Header ;
