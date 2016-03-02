@@ -3,9 +3,11 @@
 */
 
 import React from 'react' ;
+import autobind from 'autobind-decorator';
 
-var AddFishForm = React.createClass({
-  createFish : function(event) {
+@autobind
+class AddFishForm extends React.Component {
+  createFish(event) {
     // stop form from submitting
     event.preventDefault();
     // get data out of form and fill into fish-object
@@ -16,18 +18,12 @@ var AddFishForm = React.createClass({
       desc : this.refs.desc.value ,
       image : this.refs.image.value
     };
-    //console.log(fish);
-    //state of fish belongs to app, look there getInitial... and addFish - function
-    // now add the fish to the App-State
-    // this sounds goot, but does not work => App.addFish(fish) ;
-    // we must adapt ==> <Inventory /> in kompo  App to <Inventory addFish={this.addFish} />
-    //                                                feature of JSX called spread attributes:
-    // ...analog in kompo App for kompo AddFishForm => <AddFishForm {...this.props} />
     this.props.addFish(fish);
     // reset form-fields
     this.refs.fishForm.reset();
-  } ,
-  render : function() {
+  }
+  
+  render() {
     return (
       <form className="fish-edit" ref="fishForm" onSubmit={this.createFish}>
         <input type="text" ref="name" placeholder="Fish Name"/>
@@ -42,6 +38,8 @@ var AddFishForm = React.createClass({
       </form>
     )
   }
-});
+
+} ;
+
 
 export default AddFishForm ;

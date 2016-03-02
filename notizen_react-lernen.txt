@@ -428,10 +428,14 @@ pm ERR!     G:\sofim_git_repos\react_lernen\catch-of-the-day\npm-debug.log
 		 }
 
 
- -- °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
- -- 27 of 29 : WORKING WITH ES6 AND STATE                                05:29
+-- °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+-- 27 of 29 : WORKING WITH ES6 AND STATE                                05:29
  			refactor app.js to a class
 			autobind, but linkState has to be bound manually (line 112): mixin is
 			only loaded after class-def with autobind : ==>
 					reactMixin.onClass( App , Catalyst.LinkedStateMixin ) ;
 			instead of function getInitialState ==> via constructor-function (line 20)
+
+-- °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+-- 28 of 29 : CONVERTING THE REST OF OUR COMPONENTS TO ES6              05:47
+		noch die anderen module "verklassen" : Inventory Fish AddFishForm Order
