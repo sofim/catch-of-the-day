@@ -18,7 +18,7 @@ var base = Rebase.createClass('https://sweltering-fire-6318.firebaseio.com/');
 class App extends React.Component {
 
   constructor() {
-    super(),
+    super();
     this.state = {
       fishes : {} , //persistence: firebase
       order : {}    //persistence: localstorage (da user-spezifisch)
@@ -111,6 +111,7 @@ class App extends React.Component {
           fishes={this.state.fishes}
           linkState={this.linkState.bind(this)}
           removeFish={this.removeFish}
+           {...this.props}
         />
       </div>
     )

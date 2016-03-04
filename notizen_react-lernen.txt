@@ -439,3 +439,40 @@ pm ERR!     G:\sofim_git_repos\react_lernen\catch-of-the-day\npm-debug.log
 -- °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 -- 28 of 29 : CONVERTING THE REST OF OUR COMPONENTS TO ES6              05:47
 		noch die anderen module "verklassen" : Inventory Fish AddFishForm Order
+
+-- °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+-- 29 of 29 : LOCKING DOWN OUR APPLICATION WITH FIREBASE OAUTH
+							AUTHENTICATION                                            26:39
+		problem is : firebase /no login required (red sign! in dashboard)
+								 https://sweltering-fire-6318.firebaseio.com/
+		implement a login for our app-store to protect inventory from not authenticate changes
+		in firebase unter login&auth : set session -length to 24 months (i.e. = never logs you out)
+		--
+		in github (hpsof) eine neue app registrieren unter dev-apps, links dann settings OAut-applications
+		auth callback -url :
+		https://auth.firebase.com/v2/<YOUR-FIREBASE-APP>/auth/github/callback ==>
+		https://auth.firebase.com/v2/sweltering-fire-6318/auth/github/callback
+		--
+		nur inventory-komponente soll "locked" werden...
+			° bei erstmaligem erstellen des stores wird ein owner zugewiesen
+			° nur owner kann auf store zugreifen (inventory zeigen/mutieren)
+		--
+		lets get coding in Inventory.js
+		...
+		const fbref = new Firebase('https://sweltering-fire-6318.firebaseio.com/') ;
+		...
+		uid for storing actual logged in user.
+		owner = uid of store-owner
+		...
+		damit nid ueber console getrickst werden kann: in firebase rules anpassen
+		room ist label fuer die stores (next level after top level <== sweltering-fire-6318)
+		{
+			"rules": {
+				".write": "!data.exists()",
+				".read": true,
+				"$room": {
+					".write": "newData.child('owner').val() === auth.uid" ,
+					".read": true
+				}
+			}
+		}
